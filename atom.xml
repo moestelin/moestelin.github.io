@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://moestelin.github.io</id>
+    <title>Stelin&apos;s Blog</title>
+    <updated>2023-10-04T11:49:57.975Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://moestelin.github.io"/>
+    <link rel="self" href="https://moestelin.github.io/atom.xml"/>
+    <subtitle>我是斯特林，一个普普通通的初中生，很高兴认识你！</subtitle>
+    <logo>https://moestelin.github.io/images/avatar.png</logo>
+    <icon>https://moestelin.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2023, Stelin&apos;s Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[好久没写博客了]]></title>
+        <id>https://moestelin.github.io/post/hao-jiu-mei-xie-bo-ke-liao/</id>
+        <link href="https://moestelin.github.io/post/hao-jiu-mei-xie-bo-ke-liao/">
+        </link>
+        <updated>2023-10-04T11:49:29.000Z</updated>
+        <content type="html"><![CDATA[<p>没想到国庆假期都快过完了......</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[csp-j游记]]></title>
+        <id>https://moestelin.github.io/post/csp-j-you-ji/</id>
+        <link href="https://moestelin.github.io/post/csp-j-you-ji/">
+        </link>
+        <updated>2023-09-17T01:51:05.000Z</updated>
+        <content type="html"><![CDATA[<p>上午考第一轮，没想到考点却在离家二十公里的震泽中学。今天我起晚了，就在全家买了个三明治路上吃。我们走的是北环高架+友新高架，路上车是真滴多，导航说一个小时到。没想到后半段车格外少，五十分钟就到吴江。<br>
+吴江的车好多，估计都是去震泽中心学的，路上一路绿灯，只有少数几个红灯，最后还好有惊无险地到了。人真的好多，我想挤进去很困难，像极了高考时家门口星海的场面。我还在考场外碰到了送考的老师，最后九点十分终于到了考场。<br>
+一进考场，几个小黑子在看鸡你太美（开庭时别忘了带上你的手机），考场氛围还可以。<br>
+老师开始发卷了，考场没有空调，只有几个电扇，老师估计觉得热，开了窗。<br>
+广播开始播放考试须知，是一个很机械的男声，这音调高得离谱，听得我直刺耳。<br>
+九点半开考，没想到第二题我就选错了，还好后面挺简单，就那个拓补排序没听，不会做，瞎选了一个，竟然对了。<br>
+接下来就是阅读程序，第一题满分，第二天我错了不少，第三题也死伤惨重。算了......后面的完善程序我没对......<br>
+预估总分不超过80，第二轮是别想了，回家种地吧。<br>
+后来才发现，完善程序是<a href="https://www.luogu.com.cn/problem/AT_abc317_b">AT_abc317_b</a></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[a+b题解]]></title>
+        <id>https://moestelin.github.io/post/ab-ti-jie/</id>
+        <link href="https://moestelin.github.io/post/ab-ti-jie/">
+        </link>
+        <updated>2023-09-03T04:29:02.000Z</updated>
+        <content type="html"><![CDATA[<p>大家好，我是斯特林，就那个斯大林的粉丝斯特林。什么？让我写a+b？不用高精度她会很伤心的！<br>
+那么本蒟蒻就给大家送上一份高精度的题解吧！代码如下：</p>
+<pre><code class="language-cpp">#include &lt;iostream&gt;  
+#include &lt;string&gt;  
+#include &lt;vector&gt;  
+  
+using namespace std;  
+  
+// 大数加法  
+string add(string a, string b) {  
+    vector&lt;int&gt; a_digits, b_digits;  
+    // 将两个字符串转换为数字数组  
+    for (int i = a.size() - 1; i &gt;= 0; i--) {  
+        a_digits.push_back(a[i] - '0');  
+    }  
+    for (int i = b.size() - 1; i &gt;= 0; i--) {  
+        b_digits.push_back(b[i] - '0');  
+    }  
+    // 手动模拟竖式计算  
+    vector&lt;int&gt; result_digits;  
+    int carry = 0;  
+    int i = 0, j = 0;  
+    while (i &lt; a_digits.size() || j &lt; b_digits.size()) {  
+        int x = (i &lt; a_digits.size()) ? a_digits[i++] : 0;  
+        int y = (j &lt; b_digits.size()) ? b_digits[j++] : 0;  
+        int sum = x + y + carry;  
+        result_digits.push_back(sum % 10);  
+        carry = sum / 10;  
+    }  
+    if (carry != 0) {  
+        result_digits.push_back(carry);  
+    }  
+    // 将结果转换为字符串并反转  
+    string result;  
+    for (int i = result_digits.size() - 1; i &gt;= 0; i--) {  
+        result += to_string(result_digits[i]);  
+    }  
+    return result;  
+}  
+  
+int main() {  
+    string a, b;  
+    cin &gt;&gt; a &gt;&gt; b;  
+    cout &lt;&lt; add(a, b) &lt;&lt; endl;  
+    return 0;  
+}
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[我的第一篇博客]]></title>
+        <id>https://moestelin.github.io/post/wo-de-di-yi-pian-bo-ke/</id>
+        <link href="https://moestelin.github.io/post/wo-de-di-yi-pian-bo-ke/">
+        </link>
+        <updated>2023-09-01T08:35:26.000Z</updated>
+        <content type="html"><![CDATA[<p>大家好，我是斯特林，就那个<s>人见人爱花见花开车见车爆胎</s>帅气逼人的斯特林。从今天开始我就在这个网站上写博客啦，祝大家（不知道要说些什么）。</p>
+]]></content>
+    </entry>
+</feed>
